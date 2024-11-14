@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Firebase Authentication</title>
+  
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js"></script>
+</head>
+<body>
+
+  <!-- Signup Form -->
+  <div id="signupFormContainer" class="form-container">
+    <h2>Signup</h2>
+    <form id="signupForm">
+      <input type="email" id="signupEmail" placeholder="Enter email" required />
+      <input type="password" id="signupPassword" placeholder="Enter password" required />
+      <button type="submit">Signup</button>
+    </form>
+    <p class="toggle-link">Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
+  </div>
+
+  <!-- Login Form -->
+  <div id="loginFormContainer" class="form-container" style="display: none;">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Enter email" required />
+      <input type="password" id="loginPassword" placeholder="Enter password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p class="toggle-link">Don't have an account? <a href="#" onclick="showSignup()">Signup here</a></p>
+  </div>
+
+  <script type="module" src="firebase.js"></script>
+  <script type="module" src="app.js"></script>
+  <script>
+    function showSignup() {
+      document.getElementById("signupFormContainer").style.display = "block";
+      document.getElementById("loginFormContainer").style.display = "none";
+    }
+    function showLogin() {
+      document.getElementById("signupFormContainer").style.display = "none";
+      document.getElementById("loginFormContainer").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
